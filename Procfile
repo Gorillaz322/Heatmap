@@ -1,1 +1,1 @@
-web: gunicorn Twitter_heatmap:app --log-file -
+web: gunicorn Heatmap:app --log-file -
