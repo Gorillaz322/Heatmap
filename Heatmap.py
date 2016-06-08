@@ -23,7 +23,6 @@ def get_photos():
     tag = request.args['tag']
 
     flickr = flickrapi.FlickrAPI(API_KEY, API_SECRET, format='parsed-json')
-    flickr.authenticate_via_browser(perms='read')
 
     coordinates = []
 
