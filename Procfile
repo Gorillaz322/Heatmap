@@ -1,0 +1,1 @@
+web: gunicorn Twitter_heatmap:app --log-file -
