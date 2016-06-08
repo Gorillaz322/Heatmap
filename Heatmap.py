@@ -28,15 +28,15 @@ def get_photos():
     coordinates = []
 
     def search_photos(page=1):
-        response = flickr.photos.search(
+        photos = flickr.photos.search(
             tags=[tag], extras=['geo'],
             per_page=500, page=page)['photos']['photo']
-        for r in response:
-            if r['longitude'] and r['latitude']:
+        for photo in photos:
+            if photo['longitude'] and photo['latitude']:
                 coordinates.append({
-                    'lat': float(r['latitude']),
-                    'lng': float(r['longitude'])})
-        if response and len(coordinates) < 500:
+                    'lat': float(photo['latitude']),
+                    'lng': float(photo['longitude'])})
+        if photos and len(coordinates) < 500:
             search_photos(page=page + 1)
 
     search_photos()
